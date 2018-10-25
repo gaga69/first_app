@@ -1,16 +1,60 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-.button1 {
-    text-align: center;
-    margin-bottom: 10px;
+html {
+    height: 100%;
 }
 
-.container-column {
-    margin-top: 30px;
+body#top-page {
+    height: 100%;
 }
 
-.box {
-    border: solid 1px blue;
-    padding-bottom: 50px;
-    margin-bottom: 5px;
+.header {
+    box-sizing:  border-box;
+    height: 10%;
+    padding: 30px;
 }
+
+.header-nav {
+    background-color: rgb(240, 191, 227);
+}
+
+
+.main-content {
+    box-sizing: border-box;
+    height: 80%;
+    padding-bottom: 40px;
+}
+
+.form-colums {
+   height: 300px; 
+}
+
+.footer-nav {
+    background-color: hsl(0, 0%, 98%);
+}
+
+.footer {
+    box-sizing: border-box;
+    height: 10%;
+    padding: 15px 0;
+}
+
+
+.main-container {
+    margin: 15px 100px;
+} 
+
+.tweet-container {
+    margin-left: 80px;
+}
+
+.tweet-form {
+    margin: 20px 0px;
+}
+
+.post-button {
+    text-align: right;
+}
+
+.page-title {
+    margin-bottom: 20px;
+}
+
