@@ -1,14 +1,5 @@
-html {
-    height: 100%;
-}
-
-body#top-page {
-    height: 100%;
-}
 
 .header {
-    box-sizing:  border-box;
-    height: 10%;
     padding: 30px;
 }
 
@@ -18,8 +9,6 @@ body#top-page {
 
 
 .main-content {
-    box-sizing: border-box;
-    height: 80%;
     padding-bottom: 40px;
 }
 
@@ -32,8 +21,6 @@ body#top-page {
 }
 
 .footer {
-    box-sizing: border-box;
-    height: 10%;
     padding: 15px 0;
 }
 
