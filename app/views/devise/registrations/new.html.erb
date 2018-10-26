@@ -1,7 +1,6 @@
 <% provide(:title, 'Sign up') %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %> 
 
   <section class="hero is-primary is-medium main-content">
     <div class="hero-body">
@@ -16,6 +15,7 @@
     </div>
     <div class="columns is-mobile">
       <div class="column is-5 is-offset-one-quarter">
+        <%= render 'shared/error_messages', object: f.object %>
         <div class="field">
             <%= f.label :name %>
             <%= f.text_field :name, autofocus: true, class: "input" %>
