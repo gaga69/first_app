@@ -1,7 +1,7 @@
 <% provide(:title, 'Sign up') %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= devise_error_messages! %> 
 
   <section class="hero is-primary is-medium main-content">
     <div class="hero-body">
@@ -18,11 +18,11 @@
       <div class="column is-5 is-offset-one-quarter">
         <div class="field">
             <%= f.label :name %>
-            <%= f.text_field :name, class: "input", type: "name"%>
+            <%= f.text_field :name, autofocus: true, class: "input" %>
         </div>
         <div class="field">
             <%= f.label :email %>
-            <%= f.email_field :email, class: "input" %>
+            <%= f.email_field :email, autofocus: true, class: "input" %>
         </div>
         <div class="field">
           <%= f.label :password %>

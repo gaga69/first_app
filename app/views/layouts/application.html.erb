@@ -7,13 +7,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <link rel="stylesheet" type="text/css" href="bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
   </head>
 
   <body>
     <%= render 'layouts/header' %>
+    <% flash.each do |key, value| %>
+      <div class="notification <%= bulma_class_for(key) %>"><%= value %></div>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
