@@ -11,7 +11,7 @@
                 <%= link_to "Home", "#" %>
             </p>
             <p class="level-item">
-                <%= link_to "Log out", "#" %>
+                <%= link_to "Log out", destroy_user_session_path, method: "delete" %>
             </p>
             <% else %>
             <p class="level-item">

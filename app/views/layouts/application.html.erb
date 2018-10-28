@@ -17,6 +17,9 @@
       <div class="notification <%= bulma_class_for(key) %>"><%= value %></div>
     <% end %>
     <%= yield %>
+    <% if signed_in? %>
+      <%= render 'layouts/sidebar'%>
+    <% end %>
     <%= render 'layouts/footer' %>
   </body>
 </html>
