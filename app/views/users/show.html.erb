@@ -1,7 +1,7 @@
-<div class="columns main-container">
+<% provide(:title, 'User page') %>
         <div class="column is-8 tweet-container">
             <div class="level">
-                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">User name</h1>
+                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold"><%= current_user.name %></h1>
                 <button class="button">フォローしない</button>
             </div>
             <h2>最近の投稿</h2>
