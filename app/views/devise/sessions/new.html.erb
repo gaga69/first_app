@@ -12,6 +12,7 @@
         </h2>
         <p>
           <%= link_to "会員登録する", new_user_registration_path %>
+        </p>
       </div>
     </div>
     <div class="columns is-mobile form-colums">
@@ -31,9 +32,7 @@
         </div>
         <div class="field">
           <p class="control">
-            <button class="button is-info">
-              Login
-            </button>
+            <%= f.submit "Sign in", class: "button is-info"%>
           </p>
         </div>
       </div>
