@@ -13,11 +13,9 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div id="flash-message">
     <% flash.each do |key, value| %>
-      <div class="notification <%= bulma_class_for(key) %>"><%= value %></div>
+      <div id="flash-message" class="notification <%= bulma_class_for(key) %>"><%= value %></div>
     <% end %> 
-    </div>
 
     <% if signed_in? %>
       <%= render 'layouts/sidebar'%>

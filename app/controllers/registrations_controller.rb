@@ -4,9 +4,6 @@ class RegistrationsController < Devise::RegistrationsController
         user_path(resource)
     end
 
-    def after_sign_out_path_for(resource)
-        new_user_session_path
-    end
 
     private
         def sign_up_params
