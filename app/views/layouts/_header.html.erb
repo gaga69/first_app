@@ -8,7 +8,7 @@
         <div class="level-right">
         <% if signed_in? %>
             <p class="level-item">
-                <%= link_to "Home", "#" %>
+                <%= link_to "#{current_user.name}のホーム", user_path(current_user) %>
             </p>
             <P class="level-item">
                 <%= link_to "本を探す", "#"%>
