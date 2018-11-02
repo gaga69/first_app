@@ -1,8 +1,13 @@
-<li>
-    <span class="book-title"><%= post.book_title %></span>
-    <span class="book-author"><%= post.book_author %></span>
-    <span class="post-content"><%= post.content %></span>
-    <span class="timestamp">
-        Posted:<%= time_ago_in_words(post.created_at) %> ago.
-    </span>
-</li>
+<article class="box media">
+    <div class="media-content">
+        <div class="level-left">
+            <a class="level-item is-size-4"><%= @user.name %></a>
+        </div>
+        <div class="content posts">
+            <div class="book-title"> 本のタイトル：<%= post.book_title %></div>
+            <div class="book-author">著者：<%= post.book_author %></div>
+            <div class="book-content"><%= post.content %></div>
+            <div class="timestamp is-pulled-right">Posted:<%= time_ago_in_words(post.created_at) %> ago.</div>
+        </div>
+    </div>
+</article>
