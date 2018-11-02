@@ -5,7 +5,7 @@
             <%= @user.name %>のページ
         </p>
         <ul class="menu-list box">
-            <li><a>本の感想をつぶやく</a></li>
+            <li><%= link_to "本の感想をつぶやく", new_post_path %></li>
             <li><a>本の感想一覧</a></li>
         </ul>
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">

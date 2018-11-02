@@ -17,9 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:show] do
-
-  end
+  resources :users, only: [:show] 
+  resources :posts, only: [:new, :create, :destroy]
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
