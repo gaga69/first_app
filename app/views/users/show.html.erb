@@ -7,6 +7,11 @@
             <h2>最近の投稿</h2>
             <article class=" box media">
                 <div class="media-content">
+                <% if @user.posts.any? %>
+                    <ol class="posts">
+                        <% render @posts %>
+                    </ol>
+                <% end %>
                     <div class="level-left">
                         <a class="level-item is-size-4">user name</a>
                     </div>
