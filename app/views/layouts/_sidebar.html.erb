@@ -5,7 +5,9 @@
             userのページ
         </p>
         <ul class="menu-list box">
+            <% if current_user.id == @user.id %>
             <li><%= link_to "本の感想をつぶやく", new_user_post_path(current_user.id) %></li>
+            <% end %>
             <li><a>本の感想一覧</a></li>
         </ul>
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">

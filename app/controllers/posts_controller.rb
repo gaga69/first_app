@@ -17,6 +17,24 @@ class PostsController < ApplicationController
     end
 
     def destroy
+        @post = current_user.posts.find_by(id: params[:id])
+        @post.destroy
+        redirect_to controller: :users, action: :show, id: @post.user_id
+    end
+
+    def edit
+        @user = User.find(params[:user_id])
+        @post = @user.posts.find_by(id: params[:id])
+    end
+
+    def update
+        @post = current_user.posts.find(params[:id])
+        if @post.update(post_params)
+            flash[:success] = "編集できました！"
+            redirect_to controller: :users, action: :show, id: @post.user_id
+        else
+            render edit_user_post_path
+        end
     end
 
     private
