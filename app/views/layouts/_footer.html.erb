@@ -6,9 +6,10 @@
                     <a class="navbar-item">
                         Contact
                     </a>
-                    <a class="navbar-item">
-                        退会する
-                    </a>
+                    <% if user_signed_in? %>
+                    <%= link_to "退会する", "/users", method: :delete, 
+                        data: { confirm: "#{current_user.name}さん、本当に退会してもいいですか?\n退会すると全ての記録が削除されます" } %>
+                    <% end %>
                 </div>
             </div>
         </nav>

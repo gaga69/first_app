@@ -7,12 +7,13 @@
             <div class="book-title"> 本のタイトル：<%= post.book_title %></div>
             <div class="book-author">著者：<%= post.book_author %></div>
             <div class="book-content"><%= post.content %></div>
-            <% if current_user == post.user %>
-                <%= link_to "編集する", edit_user_post_path(@user, post) %>
-                <%= link_to "削除する", user_post_path(@user, post), method: :delete, 
-                                                                    data: { confirm: "削除してもいいですか？" },
-                                                                    class: "is-pulled-left" %>
-            <% end %>
+            <div class="is-pulled-left" >
+                <% if current_user == post.user %>
+                    <%= link_to "編集する", edit_user_post_path(@user, post) %>  |
+                    <%= link_to "削除する", user_post_path(@user, post), method: :delete, 
+                                                                        data: { confirm: "削除してもいいですか？" } %>                                                       
+                <% end %>
+            </div>
             <div class="timestamp is-pulled-right">Posted:<%= time_ago_in_words(post.created_at) %> ago.</div>
         </div>
     </div>
