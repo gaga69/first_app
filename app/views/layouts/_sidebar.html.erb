@@ -2,10 +2,10 @@
 <div class="column is-3">
     <aside class="menu">
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">
-            <%= @user.name %>のページ
+            userのページ
         </p>
         <ul class="menu-list box">
-            <li><%= link_to "本の感想をつぶやく", new_post_path %></li>
+            <li><%= link_to "本の感想をつぶやく", new_user_post_path(current_user.id) %></li>
             <li><a>本の感想一覧</a></li>
         </ul>
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">

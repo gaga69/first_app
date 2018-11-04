@@ -2,11 +2,11 @@ class PostsController < ApplicationController
     before_action :authenticate_user!
 
     def new
-        @post = current_user.posts.build if signed_in?
+        @user = User.find(params[:user_id])
+        @post = current_user.posts.build 
     end
 
     def create
-        @user = current_user.id
         @post = current_user.posts.build(post_params)
         if @post.save
             flash[:success] = "投稿できました！"
