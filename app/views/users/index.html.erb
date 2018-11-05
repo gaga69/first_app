@@ -1,0 +1,12 @@
+<% provide(:title, 'ユーザ一覧') %>
+    <div class="column is-8 tweet-container">
+        <h1 class="is-size-4 has-text-primary has-text-weight-semibold">ユーザ一覧</h1>
+
+        <ul class="users">
+            <% @users.each do |user| %>
+                <li><%= link_to user.name, user %></li>
+            <% end%>
+        </ul>
+    </div>
+</div>
+</div>
