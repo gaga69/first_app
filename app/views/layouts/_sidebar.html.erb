@@ -30,20 +30,20 @@
             <li><a>図書館③</a></li>
         </ul>
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">
-            フォロー
+            お気に入り
         </p>
         <ul class="menu-list box">
-            <li><a>ユーザ①</a></li>
-            <li><a>ユーザ②</a></li>
-            <li><a>ユーザ③</a></li>
-        </ul>
-        <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">
-            フォロワー
-        </p>
-        <ul class="menu-list box">
-            <li><a>ユーザ①</a></li>
-            <li><a>ユーザ②</a></li>
-            <li><a>ユーザ③</a></li>
+            <% @user ||= current_user %>
+            <li>
+                <a href="<%= following_user_path(@user) %>">
+                    フォロー：<%= @user.followed_users.count %> 人
+                </a>
+            </li>
+            <li>
+                <a href="<%= followers_user_path(@user) %>">
+                    フォロワー：<%= @user.followers.count %> 人
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

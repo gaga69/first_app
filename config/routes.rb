@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :index]  do
+    member do
+      get :following, :followers
+    end
     resources :posts
   end
 
