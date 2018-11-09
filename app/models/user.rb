@@ -16,7 +16,7 @@ class User < ApplicationRecord
     relationships.find_by(followed_id: other_user.id)
   end
 
-  def following!(other_user)
+  def follow!(other_user)
     relationships.create(followed_id: other_user.id)
   end
 
