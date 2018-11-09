@@ -1,15 +1,15 @@
-<% provide(:title, 'User page') %>
+<% provide(:title, @title ) %>
         <div class="column is-8 tweet-container">
             <div class="level">
                 <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold"><%= @user.name %></h1>
                 <%= render "follow_form" %>
             </div>
-            <h2>最近の投稿</h2>
-            <% if @user.posts.any? %>
-                <%= render @posts %>
+            <h2><%= @title %></h2>
+            <% if @users.any? %>
+                <%= render @users %>
             <% end %>
             <section class="pagination is-rounded">
-                <%= will_paginate @posts, renderer: BulmaPagination::Rails %>
+                <%= will_paginate @users, renderer: BulmaPagination::Rails %>
             </section>
         </div>
     </div>
