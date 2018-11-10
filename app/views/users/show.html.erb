@@ -5,11 +5,11 @@
                 <%= render "follow_form" %>
             </div>
             <h2>最近の投稿</h2>
-            <% if @user.posts.any? %>
-                <%= render @posts %>
+            <% if @post_items.any? %>
+                <%= render partial: 'shared/post_item', collection: @post_items %>
             <% end %>
             <section class="pagination is-rounded">
-                <%= will_paginate @posts, renderer: BulmaPagination::Rails %>
+                <%= will_paginate @post_items, renderer: BulmaPagination::Rails %>
             </section>
         </div>
     </div>
