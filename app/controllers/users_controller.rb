@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post_items = @user.feed.paginate(:page => params[:page], :per_page => 10)
-    # @posts = @user.posts.paginate(:page => params[:page], :per_page => 10)
   end
 
   def index

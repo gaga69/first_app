@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 15 }
 
   def feed
-    Post.where("user_id = ?", id)
+    Post.from_users_followed_by(self)
   end
 
   def following?(other_user)
