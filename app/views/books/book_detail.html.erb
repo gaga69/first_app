@@ -1,0 +1,21 @@
+<% provide(:title, '本の詳細') %>
+        <div class="column is-8 tweet-container">
+            <div class="level">
+                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">本の詳細</h1>
+            </div>
+
+            <article class="media">
+                <figure class="media-left">
+                    <img src="<%= @thumbnail %>">
+                </figure>
+                <div class="media-content">
+                    <p>タイトル：<%= @title %></p>
+                    <p>著者：<%= @author %></p>
+                    <p>出版社：<%= @publisher %></p>
+                    <p>詳細：<%= @description  %></p>
+                </div>
+            </article>
+        </div>
+    </div>
+    </div>
+
