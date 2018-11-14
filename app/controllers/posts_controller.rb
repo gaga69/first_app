@@ -12,7 +12,7 @@ class PostsController < ApplicationController
             flash[:success] = "投稿できました！"
             redirect_to controller: :users, action: :show, id: @post.user_id
         else
-            render new_post_path
+            render new_user_post_path
         end
     end
 
