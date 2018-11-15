@@ -37,6 +37,12 @@ class PostsController < ApplicationController
         end
     end
 
+    def index
+        @user = User.find(params[:user_id])
+        @post_items = @user.posts.paginate(:page => params[:page], :per_page => 10)
+
+    end
+
     private
 
     def post_params

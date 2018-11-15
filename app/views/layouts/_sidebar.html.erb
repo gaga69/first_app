@@ -8,7 +8,7 @@
             <% if current_user == @user %>
             <li><%= link_to "本の感想をつぶやく", new_user_post_path(current_user.id) %></li>
             <% end %>
-            <li><a>本の感想一覧</a></li>
+            <li><%= link_to "本の感想一覧", user_posts_path(@user.id) %></li>
         </ul>
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">
             本の管理

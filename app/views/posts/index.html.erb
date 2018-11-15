@@ -1,0 +1,12 @@
+<% provide(:title, 'User page') %>
+        <div class="column is-8 tweet-container">
+        <h2>本の感想一覧</h2>
+            <% if @post_items.any? %>
+                <%= render partial: 'shared/post_item', collection: @post_items %>
+            <% end %>
+            <section class="pagination is-rounded">
+                <%= will_paginate @post_items, renderer: BulmaPagination::Rails %>
+            </section>
+        </div>
+    </div>
+    </div>

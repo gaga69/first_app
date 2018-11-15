@@ -1,7 +1,7 @@
 <article class="box media">
     <div class="media-content">
         <div class="level-left">
-            <a class="level-item is-size-4"><%= post_item.user.name %></a>
+            <%= link_to post_item.user.name, user_path(id: post_item.user_id), class: "level-item is-size-4" %>
         </div>
         <div class="content posts">
             <div class="book-title"> 本のタイトル：<%= post_item.book_title %></div>
