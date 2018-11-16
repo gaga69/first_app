@@ -17,8 +17,8 @@ class BooksController < ApplicationController
 
     def book_detail
         @user = current_user
-        google_id = params[:google_id]
-        uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=id:" + google_id)
+        google_id = params[:isbn]
+        uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=id:" + isbn)
         json = Net::HTTP.get(uri)
         results = JSON.parse(json)
         @thumbnail = results['items'][0]['volumeInfo']['imageLinks']['smallThumbnail']
