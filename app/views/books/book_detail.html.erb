@@ -15,6 +15,24 @@
                     <p>詳細：<%= @description  %></p>
                 </div>
             </article>
+            <div class="control">
+                <%= form_for(@book) do |f| %>
+                    <%= f.hidden_field :google_id, %>
+                    <label class="radio">
+                        <%= f.radio_button :status, "will_read" %>
+                        読みたい本
+                    </label>
+                    <label class="radio">
+                        <%= f.radio_button :status, "reading" %>
+                        読んでいる本
+                    </label>
+                    <label class="radio">
+                        <%= f.radio_button :status, "already_read" %>
+                        読んだ本
+                    </label>
+                <% end %>
+
+            </div>
         </div>
     </div>
     </div>

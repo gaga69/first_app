@@ -26,7 +26,7 @@
                                 <p>タイトル：<%= item['volumeInfo']['title']%></p>
                                 <p>著者：<%= item['volumeInfo']['authors']%></p>
                                 <p>出版社：<%= item['volumeInfo']['publisher']%></p>
-                                <%= link_to "詳細", book_detail_path(book_id: item['id']) %>
+                                <%= link_to "詳細", book_detail_path(google_id: item['id']) %>
                             </div>
                         </article>
                     <% end %>

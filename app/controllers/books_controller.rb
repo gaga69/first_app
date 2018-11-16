@@ -5,6 +5,7 @@ class BooksController < ApplicationController
     require 'json'
 
     def book_search
+        @user = current_user
         search = params[:search]
         if search.presence
         uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=" + search)
@@ -15,8 +16,9 @@ class BooksController < ApplicationController
     end
 
     def book_detail
-        book_id = params[:book_id]
-        uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=id:" + book_id)
+        @user = current_user
+        google_id = params[:google_id]
+        uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=id:" + google_id)
         json = Net::HTTP.get(uri)
         results = JSON.parse(json)
         @thumbnail = results['items'][0]['volumeInfo']['imageLinks']['smallThumbnail']
