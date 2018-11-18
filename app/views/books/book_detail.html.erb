@@ -12,24 +12,25 @@
                     <p>タイトル：<%= @title %></p>
                     <p>著者：<%= @author %></p>
                     <p>出版社：<%= @publisher %></p>
+                    <p>ISBN: <%= @isbn %></p>
                     <p>詳細：<%= @description  %></p>
                 </div>
             </article>
+
             <div class="control">
-                <%= form_for(@book) do |f| %>
-                    <%= f.hidden_field :google_id, %>
+                <%= form_for(@book_record, :url => {:controller => :books, :action => :create}) do |f| %>
+                    <%= f.hidden_field :user_id, value: @user.id %>
+                    <%= f.hidden_field :isbn, value: @isbn %>
                     <label class="radio">
-                        <%= f.radio_button :status, "will_read" %>
-                        読みたい本
+                        <%= f.radio_button :status, "want_to_read" %>読みたい本
                     </label>
                     <label class="radio">
-                        <%= f.radio_button :status, "reading" %>
-                        読んでいる本
+                        <%= f.radio_button :status, "reading" %>読んでいる本
                     </label>
                     <label class="radio">
-                        <%= f.radio_button :status, "already_read" %>
-                        読んだ本
+                        <%= f.radio_button :status, "already_red" %>読んだ本
                     </label>
+                    <%= f.submit "登録する" %>
                 <% end %>
 
             </div>

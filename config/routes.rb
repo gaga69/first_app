@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   authenticated do
     as :user do
-      root :to => "users#show"
+      root :to => 'users#current_user_home'
     end
   end
 
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   get 'book_search', to: 'books#book_search'
   get 'book_detail', to: 'books#book_detail'
+  post 'book', to: 'books#create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -25,4 +25,8 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def current_user_home
+    redirect_to current_user
+  end
+
 end

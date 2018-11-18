@@ -12,7 +12,8 @@ class PostsController < ApplicationController
             flash[:success] = "投稿できました！"
             redirect_to controller: :users, action: :show, id: @post.user_id
         else
-            render new_user_post_path
+            @user = User.find(params[:user_id])
+            render 'posts/new', id: @user.id
         end
     end
 
@@ -33,7 +34,8 @@ class PostsController < ApplicationController
             flash[:success] = "編集できました！"
             redirect_to controller: :users, action: :show, id: @post.user_id
         else
-            render edit_user_post_path
+            @user = User.find(params[:user_id])
+            render 'posts/edit', id: @user.id
         end
     end
 
