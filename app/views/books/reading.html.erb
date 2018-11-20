@@ -1,0 +1,17 @@
+<% provide(:title, '読んでいる本') %>
+        <div class="column is-8 tweet-container">
+            <div class="level">
+                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">読んでいる本</h1>
+            </div>
+
+            <% @lists.each do |list| %>
+                <ul id="img-box">
+                    <li>
+                    <img src="<%= get_json(list.isbn.to_s)['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>" >
+                    </li>
+                </ul>
+            <% end %>
+        </div>
+    </div>
+    </div>
+

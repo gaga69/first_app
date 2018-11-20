@@ -3,17 +3,16 @@
             <div class="level">
                 <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">本の詳細</h1>
             </div>
-
             <article class="media">
                 <figure class="media-left">
-                    <img src="<%= @thumbnail %>">
+                    <img src="<%= @results['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>">
                 </figure>
                 <div class="media-content">
-                    <p>タイトル：<%= @title %></p>
-                    <p>著者：<%= @author %></p>
-                    <p>出版社：<%= @publisher %></p>
+                    <p>タイトル：<%= @results['items'][0]['volumeInfo']['title'] %></p>
+                    <p>著者：<%= @results['items'][0]['volumeInfo']['authors'] %></p>
+                    <p>出版社：<%= @results['items'][0]['volumeInfo']['publisher'] %></p>
                     <p>ISBN: <%= @isbn %></p>
-                    <p>詳細：<%= @description  %></p>
+                    <p>詳細：<%= @results['items'][0]['volumeInfo']['description']  %></p>
                 </div>
             </article>
 
@@ -22,13 +21,13 @@
                     <%= f.hidden_field :user_id, value: @user.id %>
                     <%= f.hidden_field :isbn, value: @isbn %>
                     <label class="radio">
-                        <%= f.radio_button :status, "want_to_read" %>読みたい本
+                        <%= f.radio_button :status, "wish" %>読みたい本
                     </label>
                     <label class="radio">
                         <%= f.radio_button :status, "reading" %>読んでいる本
                     </label>
                     <label class="radio">
-                        <%= f.radio_button :status, "already_red" %>読んだ本
+                        <%= f.radio_button :status, "read" %>読んだ本
                     </label>
                     <%= f.submit "登録する" %>
                 <% end %>
