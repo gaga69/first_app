@@ -18,15 +18,13 @@ class BooksController < ApplicationController
     def book_detail
         @user = current_user
         isbn = params[:isbn]
-        uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn)
-        json = Net::HTTP.get(uri)
-        results = JSON.parse(json)
-        @thumbnail = results['items'][0]['volumeInfo']['imageLinks']['smallThumbnail']
-        @title = results['items'][0]['volumeInfo']['title']
-        @author = results['items'][0]['volumeInfo']['authors']
-        @publisher = results['items'][0]['volumeInfo']['publisher']
+        get_json(isbn)
+        # @thumbnail = 
+        # @title = @results['items'][0]['volumeInfo']['title']
+        # @author = @results['items'][0]['volumeInfo']['authors']
+        # @publisher = @results['items'][0]['volumeInfo']['publisher']
         @isbn = isbn
-        @description = results['items'][0]['volumeInfo']['description']
+        # @description = @results['items'][0]['volumeInfo']['description']
         @book_record = BookRecord.new
     end
 
@@ -34,6 +32,23 @@ class BooksController < ApplicationController
         @book_record = BookRecord.new(record_params)
         @book_record.save
         redirect_to user_path(current_user.id)
+    end
+
+    def wish
+        @user = User.find(params[:id])
+        @lists = BookRecord.where(["user_id = ? and status = ?", @user.id,  "wish"])
+    end
+
+    def reading
+        @user = User.find(params[:id])
+        @lists = BookRecord.where(["user_id = ? and status = ?", @user.id,  "reading"])
+
+    end
+
+    def read
+        @user = User.find(params[:id])
+        @lists = BookRecord.where(["user_id = ? and status = ?", @user.id,  "read"])
+
     end
 
     private

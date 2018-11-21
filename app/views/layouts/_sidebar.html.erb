@@ -14,11 +14,9 @@
             本の管理
         </p>
         <ul class="menu-list box">
-            <li><a>読んでいる本</a></li>
-            <li>
-                <a class="is-active">読んだ本</a>
-            </li>
-            <li><a>読みたい本</a></li>
+            <li><%= link_to "読みたい本", wish_user_path(@user.id) %></li>
+            <li><%= link_to "読んでる本", reading_user_path(@user.id) %></li>
+            <li><%= link_to "読んだ本", read_user_path(@user.id) %></li>
             <li><a>予約した本</a></li>
         </ul>
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">

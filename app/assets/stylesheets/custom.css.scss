@@ -72,6 +72,14 @@
 }
 
 .search-button {
-    margin: 10px 0px;
-    
+    margin: 10px 0px;  
+}
+
+#img-box {
+    width: 800px;
+    li {
+        margin: 25px;
+        float: left;
+        list-style: none;
+    }
 }
