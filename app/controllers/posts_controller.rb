@@ -3,10 +3,12 @@ class PostsController < ApplicationController
 
     def new
         @user = User.find(params[:user_id])
+        @book_record = BookRecord.find(params[:format])
         @post = current_user.posts.build 
     end
 
     def create
+        @book_record = BookRecord.where(["user_id = ? and isbn = ?", params[:user_id], params[:post][:isbn]])
         @post = current_user.posts.build(post_params)
         if @post.save
             flash[:success] = "投稿できました！"
@@ -48,7 +50,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:book_title, :book_author, :content)
+        params.require(:post).permit(:content, :isbn)
     end
 
 end

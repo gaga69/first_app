@@ -4,8 +4,6 @@
             <%= link_to post_item.user.name, user_path(id: post_item.user_id), class: "level-item is-size-4" %>
         </div>
         <div class="content posts">
-            <div class="book-title"> 本のタイトル：<%= post_item.book_title %></div>
-            <div class="book-author">著者：<%= post_item.book_author %></div>
             <div class="book-content"><%= post_item.content %></div>
             <div class="is-pulled-left" >
                 <% if current_user == post_item.user %>

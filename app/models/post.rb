@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
     belongs_to :user
+    belongs_to :book_record, foreign_key: 'isbn', class_name: 'BookRecord', primary_key: 'isbn'
     default_scope -> { order('created_at DESC') }
-    validates :user_id, :book_title, :book_author, presence: true
+    validates :user_id, :isbn, presence: true
     validates :content, presence: true, length: { maximum: 200}
 
     def self.from_users_followed_by(user)

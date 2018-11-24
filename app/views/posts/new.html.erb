@@ -5,17 +5,7 @@
             <%= form_for( [@user, @post] ) do |f| %>
 
             <%= render 'shared/error_messages', object: f.object %>
-
-                <div class="field">
-                    <%= f.label :book_title, "本のタイトル" %>
-                    <%= f.text_field :book_title, class: "input" %>
-                </div>
-
-                <div class="field">
-                    <%= f.label :book_author, "著者" %>
-                    <%= f.text_field :book_author, class: "input" %>
-                </div>
-
+            <%= f.hidden_field :isbn, value: @book_record.isbn %>
                 <div class="field">
                     <%= f.text_area :content, :maxlength => "200",
                         :placeholder  => "感想を２００字以内で入力してください", class: "textarea" %>
