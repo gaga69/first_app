@@ -1,7 +1,7 @@
-<% provide(:title, '本の詳細') %>
+<% provide(:title, '読書記録の編集') %>
         <div class="column is-8 tweet-container">
             <div class="level">
-                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">本の詳細</h1>
+                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">読書記録の編集</h1>
             </div>
             <article class="media">
                 <figure class="media-left">
@@ -17,8 +17,8 @@
             </article>
 
             <div class="control is-size-5">
-                <%= form_for(@book_record, :url => {:controller => :books, :action => :create}) do |f| %>
-                    <%= f.hidden_field :user_id, value: @user.id %>
+                <%= form_for(@book_record, :url => {:controller => :books, :action => :update}) do |f| %>
+                    <%= f.hidden_field :user_id, value: current_user.id %>
                     <%= f.hidden_field :isbn, value: @isbn %>
                     <label class="status">
                         <%= f.radio_button :status, "wish", class: "radio-button" %>読みたい本
@@ -29,7 +29,7 @@
                     <label class="status">
                         <%= f.radio_button :status, "read", class: "radio-button" %>読んだ本
                     </label>
-                    <%= f.submit "登録する", class: "button is-info" %>
+                    <%= f.submit "変更する", class: "button is-info" %>
                 <% end %>
 
             </div>

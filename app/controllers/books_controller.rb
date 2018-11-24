@@ -19,19 +19,18 @@ class BooksController < ApplicationController
         @user = current_user
         isbn = params[:isbn]
         get_json(isbn)
-        # @thumbnail = 
-        # @title = @results['items'][0]['volumeInfo']['title']
-        # @author = @results['items'][0]['volumeInfo']['authors']
-        # @publisher = @results['items'][0]['volumeInfo']['publisher']
         @isbn = isbn
-        # @description = @results['items'][0]['volumeInfo']['description']
         @book_record = BookRecord.new
     end
 
     def create
         @book_record = BookRecord.new(record_params)
-        @book_record.save
-        redirect_to user_path(current_user.id)
+        if @book_record.save
+            redirect_to user_path(current_user.id)
+        else
+            flash[:alert] = "登録済みです"
+            redirect_to book_search_path
+        end
     end
 
     def wish
@@ -42,13 +41,31 @@ class BooksController < ApplicationController
     def reading
         @user = User.find(params[:id])
         @lists = BookRecord.where(["user_id = ? and status = ?", @user.id,  "reading"])
-
     end
 
     def read
         @user = User.find(params[:id])
         @lists = BookRecord.where(["user_id = ? and status = ?", @user.id,  "read"])
+    end
 
+    def edit
+        @user = User.find(params[:user_id])
+        @book_record = BookRecord.find(params[:id])
+        @isbn = @book_record.isbn.to_s
+        get_json(@isbn)
+    end
+
+    def update
+        @book_record = BookRecord.find(params[:id])
+        if @book_record.update(record_params)
+            redirect_to user_path(params[:user_id])
+        end
+    end
+
+    def destroy
+        @book_record = BookRecord.find(params[:id])
+        @book_record.destroy
+        redirect_to user_path(params[:user_id])
     end
 
     private

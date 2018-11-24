@@ -5,9 +5,13 @@
             </div>
 
             <% @lists.each do |list| %>
-                <ul id="img-box">
+                <ul>
                     <li>
-                    <img src="<%= get_json(list.isbn.to_s)['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>" >
+                        <img src="<%= get_json(list.isbn.to_s)['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>" >
+                        <% if current_user == @user %>
+                            <%= link_to "編集　|", edit_user_book_path(current_user, list.id) %>
+                            <%= link_to "　削除", user_book_path(current_user, list.id), method: :delete  %>
+                        <% end %>
                     </li>
                 </ul>
             <% end %>
