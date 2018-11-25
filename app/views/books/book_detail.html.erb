@@ -31,7 +31,9 @@
                     </label>
                     <%= f.submit "登録する", class: "button is-info" %>
                 <% end %>
-
+            <% @post.each do |post| %>
+            <%= post.content %>
+            <% end %>
             </div>
         </div>
     </div>

@@ -1,4 +1,7 @@
 <article class="box media">
+    <figure class="media-left">
+        <img src="<%= get_json(post_item.isbn.to_s)['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>" >
+    </figure>
     <div class="media-content">
         <div class="level-left">
             <%= link_to post_item.user.name, user_path(id: post_item.user_id), class: "level-item is-size-4" %>

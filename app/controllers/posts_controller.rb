@@ -13,9 +13,11 @@ class PostsController < ApplicationController
         if @post.save
             flash[:success] = "投稿できました！"
             redirect_to controller: :users, action: :show, id: @post.user_id
-        else
+        elsif @post.content.empty? then
             @user = User.find(params[:user_id])
-            render 'posts/new', id: @user.id
+            redirect_back(fallback_location: new_user_post_path, alert: "感想を入力してください")
+        else @post.content.presence 
+            redirect_back(fallback_location: new_user_post_path, alert: "投稿済みの感想は編集してください")
         end
     end
 

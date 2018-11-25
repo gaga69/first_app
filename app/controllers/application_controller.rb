@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-
+    require 'net/http'
     helper_method :get_json
 
     def get_json(query)

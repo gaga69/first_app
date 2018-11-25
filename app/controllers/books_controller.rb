@@ -9,7 +9,7 @@ class BooksController < ApplicationController
         search = params[:search]
         if search.presence
         uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=" + search)
-        json = Net::HTTP.get(uri)
+        json = Net::HTTP.get(uri).force_encoding("utf-8")
         results = JSON.parse(json)
         @items = results['items'] 
         end
@@ -17,10 +17,10 @@ class BooksController < ApplicationController
 
     def book_detail
         @user = current_user
-        isbn = params[:isbn]
-        get_json(isbn)
-        @isbn = isbn
+        @isbn = params[:isbn]
+        get_json(@isbn)
         @book_record = BookRecord.new
+        @post = Post.where(["isbn = ?", @isbn])
     end
 
     def create
