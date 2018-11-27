@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
     def get_json(query)
         uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=isbn:" + query)
         json = Net::HTTP.get(uri)
-        @results = JSON.parse(json)
+        json_encode = json.force_encoding("utf-8")
+        @results = JSON.parse(json_encode)
 
     end
 

@@ -9,8 +9,9 @@ class BooksController < ApplicationController
         search = params[:search]
         if search.presence
         uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=" + search)
-        json = Net::HTTP.get(uri).force_encoding("utf-8")
-        results = JSON.parse(json)
+        json = Net::HTTP.get(uri)
+        json_encode = json.force_encoding("utf-8")
+        results = JSON.parse(json_encode)
         @items = results['items'] 
         end
     end
