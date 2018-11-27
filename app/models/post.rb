@@ -13,4 +13,5 @@ class Post < ApplicationRecord
                user_id: user.id)
     end
 
+
 end
