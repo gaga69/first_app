@@ -16,7 +16,6 @@
     <% flash.each do |key, value| %>
       <div id="flash-message" class="notification <%= bulma_class_for(key) %>"><%= value %></div>
     <% end %> 
-
     <% if signed_in? %>
       <%= render 'layouts/sidebar'%>
     <% end %>
