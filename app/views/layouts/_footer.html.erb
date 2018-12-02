@@ -1,17 +1,11 @@
-<section class="footer">
-    <footer>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-menu footer-nav">
-                <div class="navbar-end">
-                    <a class="navbar-item">
-                        Contact
-                    </a>
-                    <% if user_signed_in? %>
-                    <%= link_to "退会する", "/users", method: :delete, 
-                        data: { confirm: "#{current_user.name}さん、本当に退会してもいいですか?\n退会すると全ての記録が削除されます" } %>
-                    <% end %>
-                </div>
-            </div>
-        </nav>
+    <footer class="footer">
+        <div class="content has-text-right">
+            <a>
+                Contact
+            </a>
+            <% if user_signed_in? %>
+                <%= link_to "退会する", "/users", method: :delete, 
+                    data: { confirm: "#{current_user.name}さん、本当に退会してもいいですか?\n退会すると全ての記録が削除されます" } %>
+                <% end %>
+        </div>
     </footer>
-</section>

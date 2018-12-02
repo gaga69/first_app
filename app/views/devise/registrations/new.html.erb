@@ -5,13 +5,20 @@
   <section class="hero is-medium main-content">
     <div class="hero-body">
       <div class="container">
-          <%= image_tag "logo.png" %>
-        <h2 class="subtitle">
-          ユーザ登録してサービスを利用する
-        </h2>
-        <P>
-          <%= link_to "登録済みのユーザはこちらから", new_user_session_path %>
-      </div>
+        <div class="sub-content">
+        <%= image_tag "logo.png"%>
+        <p class="is-size-3">
+          読書をもっと楽しもう
+        </p>
+        </div>
+        <div class="wrapper">
+        <ul class="text is-size-5">
+          <li><span class="icon has-text-primary"><i class="fas fa-book-open"></i></span>読書管理ができます</li>
+          <li><span class="icon has-text-primary"><i class="fas fa-book-open"></i></span>読書記録をのこせます</li>
+
+          <li><span class="icon has-text-primary"><i class="fas fa-book-open"></i></span>読書をとおして他のユーザとつながれます</li>
+        </ul>
+        </div>
     </div>
     <div class="columns is-mobile">
       <div class="column is-5 is-offset-one-quarter">
@@ -37,6 +44,7 @@
             <%= f.submit "Sign Up", class: "button is-info"%>
           </p>
         </div>
+        <%= link_to "登録済みのユーザはこちらからログイン", new_user_session_path %>
       </div>
     </div>
   </section>

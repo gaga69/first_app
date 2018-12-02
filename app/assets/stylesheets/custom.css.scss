@@ -18,12 +18,15 @@
    height: 300px; 
 }
 
-.footer-nav {
-    background-color: hsl(0, 0%, 98%);
-}
 
 .footer {
-    padding: 15px 0;
+    padding: 30px 0;
+    .content {
+        margin-right: 20px;
+    }
+    a {
+        margin-right: 20px;
+    }
 }
 
 
@@ -79,4 +82,22 @@
     display: block;
     position: relative;
     margin: 10px 0px;
+}
+
+.sub-content {
+    text-align: center;
+}
+
+.wrapper {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+.text {
+    display: inline-block;
+    text-align: left;
+    .icon {
+        margin-right: 5px;
+    }
 }
