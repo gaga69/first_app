@@ -27,9 +27,12 @@ class BooksController < ApplicationController
         @book_record = BookRecord.new(record_params)
         if @book_record.save
             redirect_to user_path(current_user.id)
-        else
+        elsif @book_record.isbn.presence
             flash[:alert] = "登録済みです"
-            redirect_to book_search_path
+            redirect_to book_detail_path(isbn: @book_record.isbn)
+        else @book_record.status.nil?
+            flash[:alert] = "選択してください"
+            redirect_to book_detail_path(isbn: @book_record.isbn)
         end
     end
 

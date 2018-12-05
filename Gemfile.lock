@@ -76,6 +76,9 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    debase (0.2.2)
+      debase-ruby_core_source (>= 0.10.2)
+    debase-ruby_core_source (0.10.3)
     devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -162,6 +165,8 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    ruby-debug-ide (0.6.1)
+      rake (>= 0.8.1)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.5.7)
@@ -226,6 +231,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  debase
   devise
   faker
   google-analytics-rails
@@ -236,6 +242,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.1)
   rails-i18n
+  ruby-debug-ide
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

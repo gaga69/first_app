@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
     def new
         @user = User.find(params[:user_id])
-        @book_record = BookRecord.find(params[:format])
+        @book_record = BookRecord.find(params[:book_id])
         @post = current_user.posts.build 
     end
 
