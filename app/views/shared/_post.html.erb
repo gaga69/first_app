@@ -1,0 +1,11 @@
+<div class="box media" >
+    <div class="media-content">
+        <div class="level-left">
+            <%= link_to post.user.name, user_path(post.user.id), class: "level-item is-size-4" %>
+        </div>
+        <div class="content posts">
+            <div class="book-content"><%= post.content %></div>
+        </div>
+        <div class="timestamp is-pulled-right">Posted:<%= time_ago_in_words(post.created_at) %> 前.</div>
+    </div>
+</div>

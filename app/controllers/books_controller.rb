@@ -56,6 +56,7 @@ class BooksController < ApplicationController
         @book_record = BookRecord.find(params[:id])
         @isbn = @book_record.isbn.to_s
         get_json(@isbn)
+        @posts = Post.where(["isbn = ?", @isbn])
     end
 
     def update

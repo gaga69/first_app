@@ -34,19 +34,9 @@
             </div>
             <section class="section">
                 <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">みんなの感想</h1>
-                    <% @posts.each do |post| %>
-                        <div class="box media" >
-                            <div class="media-content">
-                                <div class="level-left">
-                                    <%= link_to post.user.name, user_path(post.user.id), class: "level-item is-size-4" %>
-                                </div>
-                                <div class="content posts">
-                                    <div class="book-content"><%= post.content %></div>
-                                </div>
-                                <div class="timestamp is-pulled-right">Posted:<%= time_ago_in_words(post.created_at) %> 前.</div>
-                            </div>
-                        </div>
-                    <% end %>
+                <% if @posts.any? %>
+                    <%= render partial: 'shared/post', collection: @posts %>
+                <% end %>
             </section>
         </div>
     </div>

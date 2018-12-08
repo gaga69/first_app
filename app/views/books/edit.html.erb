@@ -31,8 +31,13 @@
                     </label>
                     <%= f.submit "変更する", class: "button is-info" %>
                 <% end %>
-
             </div>
+            <section class="section">
+                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">みんなの感想</h1>
+                <% if @posts.any? %>
+                    <%= render partial: 'shared/post', collection: @posts %>
+                <% end %>
+            </section>
         </div>
     </div>
     </div>
