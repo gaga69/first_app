@@ -16,29 +16,13 @@
                 </div>
             <% end %>
 
-            <% unless @items.nil? %>
-                    <% @items.each do |item| %>
-                        <% unless item['volumeInfo']['industryIdentifiers'].nil? or
-                        item['volumeInfo']['industryIdentifiers'][0]["type"] == 'OTHER' %>
-                        <article class="media">
-                            <figure class="media-left">
-                                <% if item['volumeInfo']['imageLinks'].nil? %>
-                                <p>no image</p>
-                                <% else %>
-                                <img src="<%= item['volumeInfo']['imageLinks']['smallThumbnail']%>" >
-                                <% end %>
-                            </figure>
-                            <div class="media-content">
-                                <p>タイトル：<%= item['volumeInfo']['title'] %></p>
-                                <p>著者：<%= item['volumeInfo']['authors'] %></p>
-                                <p>出版社：<%= item['volumeInfo']['publisher'] %></p>
-                                <p>ISBN：<%= item['volumeInfo']['industryIdentifiers'][0]["identifier"]%></p>
-                                <%= link_to "詳細", book_detail_path(isbn: item['volumeInfo']['industryIdentifiers'][0]["identifier"]) %>
-                            </div>
-                        </article>
-                    <% end %>
-                    <% end %>
+            <% unless @book_items.nil? %>
+                <%= render partial: 'shared/book_item', collection: @book_items %>
             <% end %>
+            <section class="pagination is-rounded">
+                <%= will_paginate @book_items, renderer: BulmaPagination::Rails %>
+            </section>
+
         </div>
     </div>
     </div>

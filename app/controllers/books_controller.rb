@@ -3,15 +3,17 @@ class BooksController < ApplicationController
     require 'net/http'
     require 'uri'
     require 'json'
+    require 'will_paginate/array'
 
     def book_search
         @user = current_user
         search = params[:search]
         if search.presence
-        uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=" + search + "&langRestrict=ja" + "&maxResults=40")
-        json = Net::HTTP.get(uri)
-        results = JSON.parse(json)
-        @items = results['items'] 
+            uri = URI.parse URI.encode("https://www.googleapis.com/books/v1/volumes?q=" + search + "&langRestrict=ja" + "&maxResults=40")
+            json = Net::HTTP.get(uri)
+            results = JSON.parse(json)
+            items = results['items']
+            @book_items = items.paginate(:page => params[:page], :per_page => 10)
         end
     end
 

@@ -1,0 +1,18 @@
+                        <% if book_item.dig("volumeInfo", "industryIdentifiers", 0, "type") == 'ISBN_10'%>
+                            <article class="media">
+                                <figure class="media-left">
+                                    <% if book_item['volumeInfo']['imageLinks'].nil? %>
+                                        <p>no image</p>
+                                    <% else %>
+                                        <img src="<%= book_item['volumeInfo']['imageLinks']['smallThumbnail']%>" >
+                                    <% end %>
+                                </figure>
+                                <div class="media-content">
+                                    <p>タイトル：<%= book_item['volumeInfo']['title'] %></p>
+                                    <p>著者：<%= book_item['volumeInfo']['authors'] %></p>
+                                    <p>出版社：<%= book_item['volumeInfo']['publisher'] %></p>
+                                    <p>ISBN：<%= book_item['volumeInfo']['industryIdentifiers'][0]["identifier"]%></p>
+                                    <%= link_to "詳細", book_detail_path(isbn: book_item['volumeInfo']['industryIdentifiers'][0]["identifier"]) %>
+                                </div>
+                            </article>
+                        <% end %>
