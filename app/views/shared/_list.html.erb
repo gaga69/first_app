@@ -1,0 +1,20 @@
+<article class="media">
+    <figure class="media-left">
+        <% if get_json(list.isbn.to_s)['items'][0]['volumeInfo']['imageLinks'].nil? %>
+            <figure class="image is-128x128">
+                <p> no image </p>
+            </figure>
+        <% else %>
+            <img src="<%= get_json(list.isbn.to_s)['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>" >
+        <% end %>
+    </figure>
+    <% if current_user == @user %>
+        <div class="media-content">
+            <% if controller.action_name == "read" %>
+                <%= link_to "感想を投稿する", new_user_post_path(current_user, :book_id => list.id) %> |
+            <% end %>
+            <%= link_to "編集する", edit_user_book_path(current_user, list.id) %> |
+            <%= link_to "削除する", user_book_path(current_user, list.id), method: :delete  %>
+        </div>
+    <% end %>
+</article>

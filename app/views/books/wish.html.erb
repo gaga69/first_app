@@ -3,19 +3,8 @@
             <div class="level">
                 <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">読みたい本</h1>
             </div>
+        <%= render partial: 'shared/list', collection: @lists %>
 
-            <% @lists.each do |list| %>
-                <ul>
-                    <li>
-                        <img src="<%= get_json(list.isbn.to_s)['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>" >
-                        
-                        <% if current_user == @user %>
-                            <%= link_to "編集する", edit_user_book_path(current_user, list.id) %> |
-                            <%= link_to "削除する", user_book_path(current_user, list.id), method: :delete  %>
-                        <% end %>
-                    </li>
-                </ul>
-            <% end %>
         </div>
     </div>
     </div>

@@ -5,7 +5,11 @@
             </div>
             <article class="media">
                 <figure class="media-left">
-                    <img src="<%= @results['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>">
+                    <% if @results['items'][0]['volumeInfo']['imageLinks'].nil? %>
+                        <p>no image</p>
+                    <% else %>
+                        <img src="<%= @results['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>">
+　　　　　　　　　　　　<% end %>
                 </figure>
                 <div class="media-content">
                     <p>タイトル：<%= @results['items'][0]['volumeInfo']['title'] %></p>

@@ -18,11 +18,10 @@
 
             <% unless @book_items.nil? %>
                 <%= render partial: 'shared/book_item', collection: @book_items %>
+                <section class="pagination is-rounded">
+                    <%= will_paginate @book_items, renderer: BulmaPagination::Rails %>
+                </section>
             <% end %>
-            <section class="pagination is-rounded">
-                <%= will_paginate @book_items, renderer: BulmaPagination::Rails %>
-            </section>
-
         </div>
     </div>
     </div>
