@@ -14,15 +14,15 @@
             <li><%= link_to "読みたい本", wish_user_path(@user.id) %></li>
             <li><%= link_to "読んでる本", reading_user_path(@user.id) %></li>
             <li><%= link_to "読んだ本", read_user_path(@user.id) %></li>
-            <li><a>予約した本</a></li>
+            <li><a class="input" disabled> 予約した本</a></li>
         </ul>
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">
             my図書館
         </p>
         <ul class="menu-list box">
-            <li><a>図書館①</a></li>
-            <li><a>図書館②</a></li>
-            <li><a>図書館③</a></li>
+            <li><a class="input" disabled>図書館①</a></li>
+            <li><a class="input" disabled>図書館②</a></li>
+            <li><a class="input" disabled>図書館③</a></li>
         </ul>
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">
             お気に入り

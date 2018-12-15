@@ -9,7 +9,7 @@
                 <%= render partial: 'shared/post_item', collection: @post_items %>
             <% end %>
             <section class="pagination is-rounded">
-                <%= will_paginate @post_items, renderer: BulmaPagination::Rails %>
+                <%= will_paginate @post_items, renderer: BulmaPagination::Rails, :previous_label => '<< 前', :next_label => '次 >>' %>
             </section>
         </div>
     </div>
