@@ -4,7 +4,7 @@
 
             <%= form_for( [@user, @post] ) do |f| %>
 
-            <%= render 'shared/error_messages', object: f.object %>
+            <%= render 'shared/error_messages', object: f.object  %> <%# エラーメッセージが表示できない？ %>
             
             <%= f.hidden_field :isbn, value: @book_record.isbn %>
                 <div class="field">

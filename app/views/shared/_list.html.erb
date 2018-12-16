@@ -1,8 +1,12 @@
 <article class="media">
     <figure class="media-left">
         <% if get_json(list.isbn.to_s)['items'][0]['volumeInfo']['imageLinks'].nil? %>
-            <figure class="image is-128x128">
+            <figure class="image is-128x128 has-background-white-ter">
+                <div class="book-no-image">
                 <p> no image </p>
+                <%= get_json(list.isbn.to_s)['items'][0]['volumeInfo']['title'] %><br>
+                <%= get_json(list.isbn.to_s)['items'][0]['volumeInfo']['authors'] %>
+                </div>
             </figure>
         <% else %>
             <img src="<%= get_json(list.isbn.to_s)['items'][0]['volumeInfo']['imageLinks']['smallThumbnail'] %>" >
