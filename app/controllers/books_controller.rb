@@ -13,7 +13,13 @@ class BooksController < ApplicationController
             json = Net::HTTP.get(uri)
             results = JSON.parse(json)
             items = results['items']
-            @book_items = items.paginate(:page => params[:page], :per_page => 10)
+            isbn_items = []
+            items.each do |item|
+                if item.dig("volumeInfo", "industryIdentifiers", 1, "type") == "ISBN_13"
+                    isbn_items.push(item)
+                end
+            end
+            @book_items = isbn_items.paginate(:page => params[:page], :per_page => 10)
         end
     end
 
