@@ -1,0 +1,13 @@
+<% provide(:title, '図書館をさがす') %>
+        <div class="column is-8 tweet-container">
+            <div class="level">
+                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">図書館をさがす</h1>
+            </div>
+            <%= form_tag(library_search_path, method: 'get') do %>
+                <div class="select is-rounded"> 
+                    <%= collection_select :place, :prefecture_code, JpPrefecture::Prefecture.all, :code, :name %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    </div>
