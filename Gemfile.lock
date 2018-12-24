@@ -85,6 +85,10 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     execjs (2.7.0)
     faker (1.9.1)
@@ -234,6 +238,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   debase
   devise
+  dotenv-rails
   faker
   google-analytics-rails
   jbuilder (~> 2.5)
