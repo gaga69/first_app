@@ -1,0 +1,8 @@
+                    <ul> 
+                        <li><%= city_name %></li> 
+                        <% library_json(@pref_name, city_name).each do |library| %>
+                            <% if library["category"] == "MEDIUM" %>
+                                <li><%= library["formal"] %></li> 
+                            <% end %>
+                        <% end %>
+                    </ul> 

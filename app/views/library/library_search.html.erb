@@ -15,13 +15,11 @@
             <% end %>
             <% unless @city_names.nil? %>
                 <%= "#{@pref_name}の図書館" %>
-                <% @city_names.each do |city| %>
-                    <ul>
-                        <li><%= city %></li>
-                    </ul>
-                <% end %>
+                                <%= render partial: 'shared/city_name', collection: @city_names %>
+                <section class="pagination is-rounded">
+                    <%= will_paginate @city_names, renderer: BulmaPagination::Rails, :previous_label => '<< 前', :next_label => '次 >>' %>
+                </section>
             <% end %>
-            <%= ENV['CALIL_KEY'] %>
         </div>
     </div>
     </div>

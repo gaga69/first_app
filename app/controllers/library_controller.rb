@@ -3,11 +3,13 @@ class LibraryController < ApplicationController
     require 'net/http'
     require 'uri'
     require 'json'
+    require 'will_paginate/array'
 
     def library_search
         @user = current_user
         pref_code = params[:place]
-        if pref_code.presence
+        if pref_code.nil?
+        else
             place = Place.new
             place.prefecture_code = pref_code[:prefecture_code]
             @pref_name = place.prefecture.name
@@ -15,7 +17,8 @@ class LibraryController < ApplicationController
             json = Net::HTTP.get(uri)
             city_json = json.gsub(/[();loadlibs]/,"(" => "", ")" => "", ";" => "", "loadlibs" => "")#parse error解消のため
             results = JSON.parse(city_json)
-            @city_names = results.values.flatten #valueを一つの配列にする
+            cities = results.values.flatten #city_namesの配列にする
+            @city_names = cities.paginate(:page => params[:page], :per_page => 5)
         end
     end
 end
