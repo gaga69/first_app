@@ -1,0 +1,26 @@
+<% provide(:title, '図書館をさがす') %>
+        <div class="column is-8 tweet-container">
+            <div class="level">
+                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">図書館をさがす</h1>
+            </div>
+            <%= form_tag(library_search_path, method: 'get')do %>
+                <div class="select is-rounded"> 
+                    <%= collection_select :place, :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, :prompt => "選択してください" %>
+                </div>
+                <div class="field">
+                    <p class="control search-button">
+                        <%= submit_tag 'Search', :name => nil, class: "button is-info" %>
+                    </p>
+                </div>
+            <% end %>
+            <% unless @city_names.nil? %>
+                <%= "#{@pref_name}の図書館" %>
+                <% @city_names.each do |city| %>
+                    <ul>
+                        <li><%= city %></li>
+                    </ul>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    </div>

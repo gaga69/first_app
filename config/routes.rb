@@ -33,6 +33,6 @@ Rails.application.routes.draw do
   get 'book_search', to: 'books#book_search'
   get 'book_detail', to: 'books#book_detail'
   post 'book', to: 'books#create'
-  get 'library_search', to: 'places#library_search'
+  get 'library_search', to: 'library#library_search'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
