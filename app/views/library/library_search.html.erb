@@ -14,8 +14,8 @@
                 </div>
             <% end %>
             <% unless @city_names.nil? %>
-                <%= "#{@pref_name}の図書館" %>
-                                <%= render partial: 'shared/city_name', collection: @city_names %>
+                <h1 class="is-size-4 has-text-primary"><%= "#{@pref_name}の図書館" %></h1>
+                <%= render partial: 'shared/city_name', collection: @city_names %>
                 <section class="pagination is-rounded">
                     <%= will_paginate @city_names, renderer: BulmaPagination::Rails, :previous_label => '<< 前', :next_label => '次 >>' %>
                 </section>

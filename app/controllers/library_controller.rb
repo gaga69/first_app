@@ -21,4 +21,9 @@ class LibraryController < ApplicationController
             @city_names = cities.paginate(:page => params[:page], :per_page => 5)
         end
     end
+
+    def library_detail
+        @user = current_user
+        @library = library_json(params[:pref],params[:city]).select{ |i| i["libid"] == "#{params[:libid]}"}
+    end
 end

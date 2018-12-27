@@ -106,3 +106,30 @@
     text-align: center;
 }
 
+.library-list {
+    margin: 20px 0px;
+    li:not(:first-child) {
+        text-indent: 2em;
+    }
+}
+
+.library-title {
+    color: RGB(209, 101, 10);
+}
+
+dl {
+    margin-top: 20px;
+}
+
+dt {
+    float: left;
+    clear: left;
+    margin-right: 0.5em;
+    padding-bottom: 1em;
+    width: 120px;
+}
+dd {
+    float:left;
+    margin-left: 1em;
+    
+}

@@ -34,5 +34,6 @@ Rails.application.routes.draw do
   get 'book_detail', to: 'books#book_detail'
   post 'book', to: 'books#create'
   get 'library_search', to: 'library#library_search'
+  get 'library_detail', to: 'library#library_detail'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

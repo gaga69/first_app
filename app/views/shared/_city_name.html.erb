@@ -1,8 +1,8 @@
-                    <ul> 
-                        <li><%= city_name %></li> 
-                        <% library_json(@pref_name, city_name).each do |library| %>
-                            <% if library["category"] == "MEDIUM" %>
-                                <li><%= library["formal"] %></li> 
-                            <% end %>
-                        <% end %>
-                    </ul> 
+<ul class="library-list"> 
+    <li class="is-size-5"><%= city_name %></li> 
+    <% library_json(@pref_name, city_name).each do |library| %>
+        <% if library["category"] == "MEDIUM" %>
+            <li><%= link_to library["formal"], library_detail_path(pref: @pref_name, city: city_name, libid: library["libid"]) %></li> 
+        <% end %>
+    <% end %>
+</ul> 

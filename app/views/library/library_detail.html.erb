@@ -1,0 +1,19 @@
+<% provide(:title, '図書館の詳細') %>
+        <div class="column is-8 tweet-container">
+            <div class="level">
+                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">図書館の詳細</h1>
+            </div>
+
+            <h1 class="is-size-4 library-title"><%= @library[0]["formal"] %></h1>
+            <dl>
+                <dt>住所</dt>
+                <dd><%= @library[0]["post"] %></dd>
+                <dd><%= @library[0]["address"] %></dd>
+                <dt>電話番号</dt>
+                <dd><%= @library[0]["tel"] %></dd>
+                <dt>URL</dt>
+                <dd><%= link_to @library[0]["url_pc"], @library[0]["url_pc"] %></dd>
+            </dl>
+        </div>
+    </div>
+    </div>
