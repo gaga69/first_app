@@ -18,7 +18,7 @@ class LibraryController < ApplicationController
             city_json = json.gsub(/[();loadlibs]/,"(" => "", ")" => "", ";" => "", "loadlibs" => "")#parse error解消のため
             results = JSON.parse(city_json)
             cities = results.values.flatten #city_namesの配列にする
-            @city_names = cities.paginate(:page => params[:page], :per_page => 5)
+            @city_names = cities.paginate(:page => params[:page], :per_page => 10)
         end
     end
 
