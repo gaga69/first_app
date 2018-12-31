@@ -29,11 +29,13 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
+  resources :library, only: [:destroy]
 
   get 'book_search', to: 'books#book_search'
   get 'book_detail', to: 'books#book_detail'
   post 'book', to: 'books#create'
   get 'library_search', to: 'library#library_search'
   get 'library_detail', to: 'library#library_detail'
+  post 'library', to: 'library#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

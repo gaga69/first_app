@@ -4,16 +4,34 @@
                 <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">図書館の詳細</h1>
             </div>
 
-            <h1 class="is-size-4 library-title"><%= @library[0]["formal"] %></h1>
-            <dl>
-                <dt>住所</dt>
-                <dd>〒<%= @library[0]["post"] %></dd>
-                <dd><%= @library[0]["address"] %></dd>
-                <dt>電話番号</dt>
-                <dd><%= @library[0]["tel"] %></dd>
-                <dt>URL</dt>
-                <dd><%= link_to @library[0]["url_pc"], @library[0]["url_pc"] %></dd>
-            </dl>
+            <article class="media">
+                <div class="mdeia-content">
+                    <h1 class="is-size-4 library-title"><%= @library[0]["formal"] %></h1>
+                    <dl>
+                        <dt>住所</dt>
+                        <dd>〒<%= @library[0]["post"] %></dd>
+                        <dd><%= @library[0]["address"] %></dd>
+                        <dt>電話番号</dt>
+                        <dd><%= @library[0]["tel"] %></dd>
+                        <dt>URL</dt>
+                        <dd><%= link_to @library[0]["url_pc"], @library[0]["url_pc"] %></dd>
+                    </dl>
+                </div>
+                <div class="media-right">
+                    <% if @user.favorite_libraries.find_by(libid: params[:libid]).nil? %>
+                        <%= form_for(@favorite_library, :url => {:controller => :library, :action => :create}) do |f| %>
+                            <%= f.hidden_field :user_id, value: @user.id %>
+                            <%= f.hidden_field :pref, value: @library[0]["pref"] %>
+                            <%= f.hidden_field :city, value: @library[0]["city"] %>
+                            <%= f.hidden_field :libid, value: @library[0]["libid"] %>
+                            <%= f.hidden_field :systemid, value: @library[0]["systemid"] %>
+                            <%= f.submit "お気に入りに追加する", class: "button is-info" %>
+                        <% end %>
+                    <% else %>
+                        <%= button_to "お気に入りから削除する", { :action => "destroy", id:@lib.id}, :method => :delete, class: "button is-warning" %>
+                    <% end %>
+                </div>
+            </article>
         </div>
     </div>
     </div>
