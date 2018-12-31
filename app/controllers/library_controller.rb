@@ -42,6 +42,6 @@ class LibraryController < ApplicationController
     end
     private 
         def library_params
-            params.require(:favorite_library).permit(:user_id, :pref, :city, :libid, :systemid)
+            params.require(:favorite_library).permit(:user_id, :pref, :city, :libid, :systemid, :libname)
         end
 end

@@ -25,6 +25,7 @@
                             <%= f.hidden_field :city, value: @library[0]["city"] %>
                             <%= f.hidden_field :libid, value: @library[0]["libid"] %>
                             <%= f.hidden_field :systemid, value: @library[0]["systemid"] %>
+                            <%= f.hidden_field :libname, value: @library[0]["formal"] %>
                             <%= f.submit "お気に入りに追加する", class: "button is-info" %>
                         <% end %>
                     <% else %>
