@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_relationships
   has_many :favorite_libraries, dependent: :destroy
 
-  validates :name, presence: true, length: { maximum: 15 }
+  validates :name, presence: true, length: { maximum: 15 }, format: { with: /\A[a-zA-Z0-9]+\z/, message: "半角のアルファベット（大文字・小文字）と数字のみ使用できます" }
 
   def feed
     Post.from_users_followed_by(self)

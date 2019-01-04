@@ -25,7 +25,7 @@
         <%= render 'shared/error_messages', object: f.object %>
         <div class="field">
             <%= f.label :name %>
-            <%= f.text_field :name, autofocus: true, class: "input" %>
+            <%= f.text_field :name, autofocus: true, class: "input", placeholder: "半角のアルファベット（大文字・小文字）と数字のみ使用できます" %>
         </div>
         <div class="field">
             <%= f.label :email %>
