@@ -29,6 +29,28 @@ class BooksController < ApplicationController
         get_json(@isbn)
         @book_record = BookRecord.new
         @posts = Post.where(["isbn = ?", @isbn])
+        #図書館に対して蔵書の有無と貸出状況を問い合わせる
+        systemids = FavoriteLibrary.where(["user_id = ?", @user.id]).select(:systemid).distinct
+        arry_systemid = []
+        systemids.each do |systemid|
+            arry_systemid.push(systemid[:systemid])
+        end
+        query_systemid = arry_systemid.join(",")
+        uri = URI.parse URI.encode("https://api.calil.jp/check?appkey=#{ENV['CALIL_KEY']}" + "&isbn=#{@isbn}" + "&systemid=#{query_systemid}" + "&callback=no")
+        json = Net::HTTP.get(uri)
+        results = JSON.parse(json)
+        p results
+        #呼び出しを繰り返す
+        unless results["continue"] == 0    
+            while results["continue"] < 2 do
+                sleep(3)
+                uri = URI.parse URI.encode("https://api.calil.jp/check?appkey=#{ENV['CALIL_KEY']}" + "&session=#{results["session"]}" + "&callback=no")
+                json = Net::HTTP.get(uri)
+                results = JSON.parse(json)
+                break if results["continue"] == 0
+            end
+        end
+        p results
     end
 
     def create
