@@ -35,8 +35,23 @@
                     </label>
                     <%= f.submit "登録する", class: "button is-info" %>
                 <% end %>
-                
             </div>
+            <section class="section">
+                <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">蔵書を調べる</h1>
+                <% @systemids.each do |id| %>
+                    <h1 class="is-size-5 has-text-primary"><%= "#{id.city}の蔵書" %></h1>
+                    <% if @libresults["books"][@isbn]["#{id.systemid}"]["libkey"].empty? %>
+                        <p>蔵書なし</p>
+                    <% else %>
+                        <%= link_to "予約する", @libresults["books"][@isbn]["#{id.systemid}"]["reserveurl"] %>
+                        <% @libresults["books"][@isbn]["#{id.systemid}"]["libkey"].each do |name, status| %>
+                            <ul>
+                                <li><%= "#{name} : #{status}" %></li>
+                            </ul>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </section>
             <section class="section">
                 <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">みんなの感想</h1>
                 <% if @posts.any? %>
