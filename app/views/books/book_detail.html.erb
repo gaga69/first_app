@@ -39,13 +39,13 @@
             <section class="section">
                 <h1 class="page-title is-size-4 has-text-primary has-text-weight-semibold">蔵書を調べる</h1>
                 <% @systemids.each do |id| %>
-                    <h1 class="is-size-5 has-text-primary"><%= "#{id.city}の蔵書" %></h1>
+                        <p class="is-size-5 city-name"><%= "#{id.city}の蔵書" %></p>
                     <% if @libresults["books"][@isbn]["#{id.systemid}"]["libkey"].empty? %>
-                        <p>蔵書なし</p>
+                        <p style="text-indent: 1em">蔵書なし</p>
                     <% else %>
-                        <%= link_to "予約する", @libresults["books"][@isbn]["#{id.systemid}"]["reserveurl"] %>
+                        <%= button_to "予約する", @libresults["books"][@isbn]["#{id.systemid}"]["reserveurl"], class: "button is-info is-small is-outlined is-rounded" %>
                         <% @libresults["books"][@isbn]["#{id.systemid}"]["libkey"].each do |name, status| %>
-                            <ul>
+                            <ul style="text-indent: 1em">
                                 <li><%= "#{name} : #{status}" %></li>
                             </ul>
                         <% end %>
