@@ -14,7 +14,7 @@
             <li><%= link_to "読みたい本", wish_user_path(@user.id) %></li>
             <li><%= link_to "読んでる本", reading_user_path(@user.id) %></li>
             <li><%= link_to "読んだ本", read_user_path(@user.id) %></li>
-            <li><a class="input" disabled> 予約した本</a></li>
+            <li><%= link_to "予約した本", reserved_user_path(@user.id) %></li>
         </ul>
         <p class="menu-label is-size-6 has-text-primary has-text-weight-bold">
             お気に入りの図書館

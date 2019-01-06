@@ -81,6 +81,11 @@ class BooksController < ApplicationController
         @lists = BookRecord.where(["user_id = ? and status = ?", @user.id,  "read"])
     end
 
+    def reserved
+        @user = User.find(params[:id])
+        @lists = BookRecord.where(["user_id = ? and status = ?", @user.id, "reserved"])
+    end
+
     def edit
         @user = User.find(params[:user_id])
         @book_record = BookRecord.find(params[:id])

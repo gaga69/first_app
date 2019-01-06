@@ -33,6 +33,9 @@
                     <label class="status">
                         <%= f.radio_button :status, "read", class: "radio-button" %>読んだ本
                     </label>
+                    <label class="status">
+                        <%= f.radio_button :status, "reserved", class: "radio-button" %>予約した本
+                    </label>
                     <%= f.submit "登録する", class: "button is-info" %>
                 <% end %>
             </div>

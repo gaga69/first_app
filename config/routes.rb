@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       get :wish, to: 'books#wish'
       get :reading, to: 'books#reading'
       get :read, to: 'books#read'
+      get :reserved, to: 'books#reserved'
     end
     resources :posts
     resources :books, only: [:edit, :destroy, :update]
