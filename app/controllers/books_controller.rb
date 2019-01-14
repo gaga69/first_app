@@ -31,11 +31,7 @@ class BooksController < ApplicationController
         @posts = Post.where(["isbn = ?", @isbn])
         # 図書館に対して蔵書の有無と貸出状況を問い合わせる
         @systemids = FavoriteLibrary.where(["user_id = ?", @user.id]).select(:systemid, :city).distinct
-        arry_systemid = []
-        @systemids.each do |systemid|
-            arry_systemid.push(systemid[:systemid])
-        end
-        query_systemid = arry_systemid.join(",")
+        query_systemid = @systemids.map { |systemid| systemid[:systemid] }.join(",")
         uri = URI.parse URI.encode("https://api.calil.jp/check?appkey=#{ENV['CALIL_KEY']}" + "&isbn=#{@isbn}" + "&systemid=#{query_systemid}" + "&callback=no")
         json = Net::HTTP.get(uri)
         results = JSON.parse(json)
