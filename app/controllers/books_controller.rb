@@ -50,7 +50,6 @@ class BooksController < ApplicationController
             end
         end
         @libresults = results 
-        p @libresults
     end
 
     def create
